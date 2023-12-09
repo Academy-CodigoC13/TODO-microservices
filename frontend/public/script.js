@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Delegar eventos de eliminación y completado a los botones correspondientes
   taskListContainer.addEventListener("click", (event) => {
-    console.log(event.target.dataset);
     if (event.target.classList.contains("delete-task-btn")) {
       const taskId = event.target.dataset.taskId;
       deleteTask(taskId);
@@ -40,8 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const response = await fetch("/api/tasks");
     const data = await response.json();
-    console.log(data);
-
     if (data.tasks) {
       data.tasks.forEach((task) => {
         const taskElement = createTaskElement(task);
