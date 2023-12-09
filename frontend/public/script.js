@@ -38,8 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
   async function loadTasks() {
     taskListContainer.innerHTML = ""; // Limpiar el contenedor antes de cargar las tareas
 
-    const response = await fetch("/tasks");
+    const response = await fetch("/api/tasks");
     const data = await response.json();
+    console.log(data);
 
     if (data.tasks) {
       data.tasks.forEach((task) => {
@@ -51,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Función para agregar una nueva tarea al backend
   async function addTask(title, description) {
-    const response = await fetch("/tasks", {
+    const response = await fetch("/api/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Función para borrar una tarea
   async function deleteTask(id) {
-    const response = await fetch(`/tasks/${id}`, {
+    const response = await fetch(`api/tasks/${id}`, {
       method: "DELETE",
     });
 
@@ -78,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Función para marcar una tarea como completada
   async function markAsCompleted(id) {
-    const response = await fetch(`/tasks/${id}/completed`, {
+    const response = await fetch(`api/tasks/${id}/completed`, {
       method: "PUT",
     });
 

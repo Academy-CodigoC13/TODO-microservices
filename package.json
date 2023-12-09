@@ -1,0 +1,12 @@
+{
+  "name": "microservices-app-frontend",
+  "version": "1.0.0",
+  "description": "Frontend microservicio para la aplicación de tareas",
+  "main": "backend/src/server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
